@@ -1,4 +1,5 @@
 import 'package:buzzwords/constants/sample_words.dart';
+import 'package:buzzwords/pages/word_details/word_details.dart';
 import 'package:flutter/material.dart';
 
 class WordListBottomSheet extends StatefulWidget {
@@ -89,40 +90,52 @@ class _WordListBottomSheetState extends State<WordListBottomSheet> {
                               vertical: 5.0,
                               horizontal: 10.0,
                             ),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15.0,
-                                vertical: 10.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.yellow[100]!,
-                                border: Border.all(
-                                  color: Colors.yellow[600]!,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => WordDetails(
+                                      currentWord: currentWords[index],
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 15.0,
+                                  vertical: 10.0,
                                 ),
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    currentWords[index]['word'],
-                                    style: TextStyle(
-                                      fontSize: 18.0,
-                                    ),
+                                decoration: BoxDecoration(
+                                  color: Colors.yellow[100]!,
+                                  border: Border.all(
+                                    color: Colors.yellow[600]!,
                                   ),
-                                  Text(
-                                    'by: ${currentWords[index]['submittedBy']}',
-                                    style: TextStyle(
-                                      fontSize: 12.0,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      currentWords[index]['word'],
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    '${DateTime.parse(currentWords[index]['dateTime'].toString()).day} • ${DateTime.parse(currentWords[index]['dateTime'].toString()).month} • ${DateTime.parse(currentWords[index]['dateTime'].toString()).year}',
-                                    style: TextStyle(
-                                      fontSize: 12.0,
+                                    Text(
+                                      'by: ${currentWords[index]['submittedBy']}',
+                                      style: TextStyle(
+                                        fontSize: 12.0,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                    Text(
+                                      '${DateTime.parse(currentWords[index]['dateTime'].toString()).day} • ${DateTime.parse(currentWords[index]['dateTime'].toString()).month} • ${DateTime.parse(currentWords[index]['dateTime'].toString()).year}',
+                                      style: TextStyle(
+                                        fontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           );

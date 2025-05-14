@@ -68,12 +68,12 @@ class _ParentPageState extends State<ParentPage> {
             ),
             label: "Submit",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Ionicons.sparkles_outline,
-            ),
-            label: "AI",
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(
+          //     Ionicons.sparkles_outline,
+          //   ),
+          //   label: "AI",
+          // ),
         ],
       ),
     );
