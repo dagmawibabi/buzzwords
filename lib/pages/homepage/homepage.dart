@@ -34,6 +34,51 @@ class _HomepageState extends State<Homepage> {
   }
 
   List filteredList = [];
+  Widget _buildStatCard(String title, String value, Color color) {
+    return Container(
+      width: 140,
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(
+          color: color.withOpacity(0.3),
+          width: 1.5,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: color,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey[700],
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _filterList() {
     String query = searchTextController.text.toLowerCase();
     setState(() {
@@ -98,6 +143,21 @@ class _HomepageState extends State<Homepage> {
                 ),
               ],
             ),
+          ),
+        ),
+
+        // Stats Cards Row
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+          child: Row(
+            children: [
+              _buildStatCard('Total Words', '1,234', Colors.amber[700]!),
+              const SizedBox(width: 12),
+              _buildStatCard('New Today', '24', Colors.green[600]!),
+              const SizedBox(width: 12),
+              _buildStatCard('Favorites', '56', Colors.orange[700]!),
+            ],
           ),
         ),
 

@@ -1,3 +1,4 @@
+import 'package:buzzwords/pages/auth/login_page.dart';
 import 'package:buzzwords/pages/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:buzzwords/pages/parent_page/parent_page.dart';
@@ -21,8 +22,9 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        // "/": (context) => ParentPage(),
-        "/": (context) => OnboardingPage(),
+        "/": (context) => ParentPage(),
+        // "/": (context) => OnboardingPage(),
+        // "/": (context) => LoginPage(),
       },
       theme: ThemeData(
         // scaffoldBackgroundColor: Color(0xff0f0f0f),
