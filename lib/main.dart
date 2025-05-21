@@ -22,9 +22,9 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/": (context) => ParentPage(),
+        // "/": (context) => ParentPage(),
         // "/": (context) => OnboardingPage(),
-        // "/": (context) => LoginPage(),
+        "/": (context) => LoginPage(),
       },
       theme: ThemeData(
         // scaffoldBackgroundColor: Color(0xff0f0f0f),
